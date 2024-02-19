@@ -1,0 +1,29 @@
+PS:
+Given an integer n, return true if it is a power of three. Otherwise, return false.
+An integer n is a power of three, if there exists an integer x such that n == 3^x.
+
+Approach 1:
+      class Solution {
+      public:
+          bool isPowerOfThree(int n) {
+              if(n == 0 || n<0) return false;
+              while(n%3 == 0){
+                  n /= 3;
+              }
+              return n == 1;
+          }
+      };
+Runtime = 11 ms
+Memory = 8.2 MB
+
+Approach 2:
+      class Solution {
+      public:
+          bool isPowerOfThree(int n) {
+              if(n <= 0) return false;
+              double logv = log10(n) / log10(3);
+              return logv == (int)logv;
+          }
+      };
+Runtime = 11 ms
+Memory = 8.3 MB
