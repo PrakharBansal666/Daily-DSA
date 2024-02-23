@@ -1,0 +1,30 @@
+PS:
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+An input string is valid if:
+      1. Open brackets must be closed by the same type of brackets.
+      2. Open brackets must be closed in the correct order.
+      3. Every close bracket has a corresponding open bracket of the same type.
+
+Approach:
+      class Solution {
+      public:
+          bool isValid(string s) {
+              stack <char> par_st;
+              for(char par : s){
+                  if(par == '(' || par == '{' || par == '['){
+                      par_st.push(par);
+                  }
+                  else{
+                      if(par_st.empty()) return false;
+                      if(par == ')' && par_st.top() != '(') return false;
+                      if(par == '}' && par_st.top() != '{') return false;
+                      if(par == ']' && par_st.top() != '[') return false;
+                      par_st.pop();
+                  }
+              }
+              return par_st.empty();
+          }
+      };
+
+Runtime: 0 ms
+Memory: 7.48 MB
