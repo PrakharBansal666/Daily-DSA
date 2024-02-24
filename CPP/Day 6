@@ -1,0 +1,24 @@
+**9. Palindrome Number**
+PS:
+Given an integer x, return true if x is a 
+palindrome, and false otherwise.
+
+Approach:
+      class Solution {
+      public:
+          bool isPalindrome(int x) {
+              long copy = x;
+              long rev = 0;
+              while(copy > 0){
+                  rev = rev*10 + (copy%10);
+                  copy /= 10;
+              }
+              if(rev == x){
+                  return true;
+              }
+              return false;
+          }
+      };
+
+Runtime: 6 ms
+Memory: 8.07 MB
