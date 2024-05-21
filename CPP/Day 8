@@ -1,0 +1,33 @@
+78. Subsets
+
+PS:
+Given an integer array nums of unique elements, return all possible 
+subsets(the power set).
+The solution set must not contain duplicate subsets. Return the solution in any order.
+
+Approach:
+
+class Solution {
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<int> temp;
+        backtrack(nums, temp, 0);
+        return ans;
+    }
+
+    vector<vector<int>> ans;
+    void backtrack(vector<int> nums, vector<int> temp, int i){
+        if(i == nums.size()){
+            ans.push_back(temp);
+            return;
+        }
+        temp.push_back(nums[i]);
+        backtrack(nums, temp, i+1);
+        temp.pop_back();
+        backtrack(nums, temp, i+1);
+        return;
+    }
+};
+
+Runtime: 9 ms
+Memory: 15.31 MB
